@@ -18,6 +18,9 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'home']);
 
+// Tramite questa Route creo una nuova pagina e con "->middleware(['auth', 'verified'])->name('dashboard');" permetto l'accesso solo agli utenti registrati
+Route::get('/logged', [MainController::class, 'logged'])->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
