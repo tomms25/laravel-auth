@@ -17,7 +17,11 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->words(3, true),
+            'description' => fake()->paragraph(),
+            'main_image' => fake()->imageUrl(360, 360, 'animals', true),
+            'release_date' => fake()->dateTimeInInterval('-6months', '+6months'),
+            'repo_link' => fake()->url(),
         ];
     }
 }
